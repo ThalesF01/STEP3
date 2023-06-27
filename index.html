@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Step 3</title>
+</head>
+  <body>
+    <header>
+        <h1>Relatorio de vendas</h1>
+    </header>
+
+    <div id="selects">
+
+        <div class="select">
+            <label for="selectCategoria">Categoria: </label>
+            <select id="selectCategoria">
+                <option value="">Selecione uma categoria</option>
+                <option value="eletronicos">Tecnologia</option>
+                <option value="vestuario">Vestuário</option>
+                <option value="alimentos">Alimentos</option>
+            </select>
+        </div>
+
+        <div class="select">
+          <label for="selectMarca">Marca: </label>
+          <select id="selectMarca" disabled>
+            <option value="">Selecione uma marca</option>
+          </select>
+        </div>
+      
+        <div class="select">
+          <label for="selectProduto">Produto: </label>
+          <select id="selectProduto" disabled>
+            <option value="">Selecione um produto</option>
+          </select>
+        </div>
+
+    </div>
+    
+
+    <div class="grafico">
+        <canvas id="meuGrafico" ></canvas>
+    </div>
+    
+
+    <script src="selects.js"></script>
+  </body>
+</html>

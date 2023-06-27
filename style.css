@@ -1,0 +1,71 @@
+* {   
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+
+  body{
+    height: 100vh;
+  }
+
+
+  header{
+    height: 12vh;
+    background-color:#465775;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .select{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .select label{
+    font-size: 1.3rem;
+    margin: 15px;
+  }
+
+  #selects{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;   
+    height: 18vh;
+  }
+
+  #selects select{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3.3rem;
+    border-radius: 15px;
+    padding: 15px;
+    transition: all 0.3s ease-in-out;
+    background-color: #465775;
+    color: #d7d5e0;
+    font-weight: bold;
+    font-size: 1rem;
+    
+  }
+
+  #selects select:hover{
+    cursor: pointer;
+    letter-spacing: 1px;
+    transform: scale(1.05);
+    background-color: #a998c9be;
+    color: #28344a;
+    border-color: rgb(0, 0, 0);
+  }
+
+  #selects select option{
+   
+    padding: 25px;
+    margin: 25px;
+  }
+
+#meuGrafico{
+    height: 150px;
+}
