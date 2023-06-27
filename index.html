@@ -20,7 +20,6 @@
                 <ul><a href="#">Sales Report</a></ul>
             </li>
         </div>
-        
     </header>
 
     <div id="selects">
@@ -33,7 +32,7 @@
                 <option value="vestuario">Vestuário</option>
                 <option value="alimentos">Alimentos</option>
             </select>
-        </div>
+        </div> 
 
         <div class="select">
           <label for="selectMarca">Marca: </label>
@@ -51,10 +50,16 @@
 
     </div>
     
-    <div class="grafico">
-        <canvas id="meuGrafico" ></canvas>
-    </div>
+    <div class="chart-container" style="position: relative; height:80vh; width:100%; align-items: center; justify-content: center;">
+      <canvas id="meuGrafico"></canvas>
+  </div>
     
     <script src="selects.js"></script>
+
+
+    <footer>
+        <img src="img/copyright.png" alt="copyright">
+        <a href="https://github.com/ThalesF01" target="_blank">Thales Fiscus</a>
+    </footer>
   </body>
 </html>
