@@ -1,53 +1,53 @@
 var dados = {
   eletronicos: {
     Apple: {
-      AppleWatch: [10, 13, 15, 12],
-      MacBook: [5, 8, 10, 6],
-      Iphone : [15, 10, 12, 18]
+      AppleWatch: [10, 13, 15, 12, 7, 11],
+      MacBook: [5, 8, 10, 6, 9, 7],
+      Iphone: [15, 10, 12, 18, 15, 11]
     },
     Samsumg: {
-      SmartPhone: [18, 20, 17, 15],
-      Televisão: [10, 12, 14, 16],
-      Computadores: [8, 6, 10, 12]
+      SmartPhone: [18, 20, 17, 15, 11, 12],
+      Televisão: [10, 12, 14, 16, 14, 13],
+      Computadores: [8, 6, 10, 12, 10, 15]
     },
     Microsoft: {
-      Xbox: [6, 8, 10, 12],
-      Softwares: [15, 12, 18, 20],
-      Computadores: [20, 18, 15, 10]
+      Xbox: [6, 8, 10, 12, 6, 9],
+      Softwares: [15, 12, 18, 20, 7, 12],
+      Computadores: [20, 18, 15, 10, 12, 16]
     }
   },
   vestuario: {
     Nike: {
-      Chuteira: [10, 11, 7, 5],
-      Bola: [7, 14, 18, 15],
-      Camisa: [10, 12, 15, 8]
+      Chuteira: [10, 11, 7, 5, 4, 3],
+      Bola: [7, 14, 18, 15, 8, 10],
+      Camisa: [10, 12, 15, 8, 5, 9]
     },
     Adidas: {
-      Short: [10, 12, 8, 6],
-      Bermuda: [7, 4, 9, 8],
-      Tenis: [10, 6, 7, 5]
+      Short: [10, 12, 8, 6, 10, 7],
+      Bermuda: [7, 4, 9, 8, 9, 10],
+      Tenis: [10, 6, 7, 5, 10, 8]
     },
     Puma: {
-      Meia: [15, 18, 12, 10],
-      Bone: [8, 10, 6, 12],
-      Camiseta: [22, 20, 25, 28]
+      Meia: [15, 18, 12, 10, 11, 13],
+      Bone: [8, 10, 6, 12, 13, 15],
+      Camiseta: [12, 10, 15, 18, 11, 7]
     }
   },
   alimentos: {
     McDonalds: {
-      BigMac: [5, 10, 8, 6],
-      Batata: [12, 15, 10, 8],
-      Nugget: [18, 11, 15, 12]
+      BigMac: [5, 10, 8, 6, 11, 14],
+      Batata: [12, 15, 10, 8, 9, 13],
+      Nugget: [18, 11, 15, 12, 15, 14]
     },
     Starbucks: {
-      Expresso: [10, 8, 12, 15],
-      Cappuccino: [6, 5, 8, 10],
-      Bolo: [15, 18, 4, 10]
+      Expresso: [10, 8, 12, 15, 6, 9],
+      Cappuccino: [6, 5, 8, 10, 15, 11],
+      Bolo: [15, 18, 4, 10, 9, 12]
     },
     CocaCola: {
-      Suco: [9, 15, 8, 12],
-      Refrigerante: [8, 10, 12, 15],
-      Agua: [5, 6, 10, 8]
+      Suco: [9, 15, 8, 12, 15, 10],
+      Refrigerante: [8, 10, 12, 15, 8, 11],
+      Agua: [5, 6, 10, 8, 7, 5]
     }
   }
 };
@@ -57,7 +57,7 @@ var selectMarca = document.getElementById("selectMarca");
 var selectProduto = document.getElementById("selectProduto");
 var meuGrafico = null;
 
-selectCategoria.addEventListener("change", function() {
+selectCategoria.addEventListener("change", function () {
   var categoriaSelecionada = selectCategoria.value;
 
   selectMarca.innerHTML = '<option value="">Selecione uma marca</option>';
@@ -65,10 +65,8 @@ selectCategoria.addEventListener("change", function() {
 
   if (categoriaSelecionada) {
     var marcas = Object.keys(dados[categoriaSelecionada]);
-    marcas.forEach(function(marca) {
-      var option = document.createElement("option");
-      option.value = marca;
-      option.textContent = marca;
+    marcas.forEach(function (marca) {
+      var option = new Option(marca, marca);
       selectMarca.appendChild(option);
     });
 
@@ -78,12 +76,10 @@ selectCategoria.addEventListener("change", function() {
     selectProduto.disabled = true;
   }
 
-  if (meuGrafico) {
-    meuGrafico.destroy();
-  }
+  destroyChart();
 });
 
-selectMarca.addEventListener("change", function() {
+selectMarca.addEventListener("change", function () {
   var categoriaSelecionada = selectCategoria.value;
   var marcaSelecionada = selectMarca.value;
 
@@ -91,10 +87,8 @@ selectMarca.addEventListener("change", function() {
 
   if (marcaSelecionada) {
     var produtos = Object.keys(dados[categoriaSelecionada][marcaSelecionada]);
-    produtos.forEach(function(produto) {
-      var option = document.createElement("option");
-      option.value = produto;
-      option.textContent = produto;
+    produtos.forEach(function (produto) {
+      var option = new Option(produto, produto);
       selectProduto.appendChild(option);
     });
 
@@ -103,19 +97,15 @@ selectMarca.addEventListener("change", function() {
     selectProduto.disabled = true;
   }
 
-  if (meuGrafico) {
-    meuGrafico.destroy();
-  }
+  destroyChart();
 });
 
-selectProduto.addEventListener("change", function() {
+selectProduto.addEventListener("change", function () {
   var categoriaSelecionada = selectCategoria.value;
   var marcaSelecionada = selectMarca.value;
   var produtoSelecionado = selectProduto.value;
 
-  if (meuGrafico) {
-    meuGrafico.destroy();
-  }
+  destroyChart();
 
   var ctx = document.getElementById("meuGrafico").getContext("2d");
 
@@ -124,49 +114,54 @@ selectProduto.addEventListener("change", function() {
   meuGrafico = new Chart(ctx, {
     type: "bar",
     data: {
-      labels: ["Janeiro", "Fevereiro", "Março", "Abril"],
+      labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"],
       datasets: [
         {
           label: produtoSelecionado,
           data: dadosProduto,
-          backgroundColor: 'rgb(45, 56, 105)',          
+          backgroundColor: 'rgb(45, 56, 105)',
           borderWidth: 5,
-          barPercentage: 0.7, // Largura das barras
-          categoryPercentage: 0.6, // Espaçamento entre as barras
+          barPercentage: 0.7,
+          categoryPercentage: 0.6,
           borderRadius: 10,
           hoverBackgroundColor: 'rgb(21, 27, 54)',
         }
       ]
-    },options: {
+    },
+    options: {
       layout: {
         padding: 50
-    },
+      },
       scales: {
         y: {
           beginAtZero: true,
           grid: {
-            display: false, // Ocultar linhas de grade no eixo y
+            display: false,
           },
           ticks: {
             font: {
-              size: 14, // Tamanho da fonte do eixo y
+              size: 14,
             },
           },
         },
         x: {
           grid: {
-            display: false, // Ocultar linhas de grade no eixo x
+            display: false,
           },
         },
       },
-      
     },
-    
   });
 });
 
+function destroyChart() {
+  if (meuGrafico) {
+    meuGrafico.destroy();
+  }
+}
+
 var select = document.getElementById('mySelect');
 
-select.addEventListener('click', function() {
+select.addEventListener('click', function () {
   select.classList.toggle('open');
 });
