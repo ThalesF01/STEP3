@@ -129,16 +129,17 @@ selectProduto.addEventListener("change", function() {
         {
           label: produtoSelecionado,
           data: dadosProduto,
-          borderColor: '#36A2EB',
-          backgroundColor: '#9BD0F5',          
+          backgroundColor: 'rgb(45, 56, 105)',          
           borderWidth: 5,
           barPercentage: 0.7, // Largura das barras
-          categoryPercentage: 0.4, // Espaçamento entre as barras
+          categoryPercentage: 0.6, // Espaçamento entre as barras
+          borderRadius: 10,
+          hoverBackgroundColor: 'rgb(21, 27, 54)',
         }
       ]
     },options: {
       layout: {
-        padding: 25
+        padding: 50
     },
       scales: {
         y: {
@@ -155,11 +156,6 @@ selectProduto.addEventListener("change", function() {
         x: {
           grid: {
             display: false, // Ocultar linhas de grade no eixo x
-          },
-          ticks: {
-            font: {
-              size: 14, // Tamanho da fonte do eixo x
-            },
           },
         },
       },

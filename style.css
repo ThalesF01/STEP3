@@ -9,13 +9,12 @@
     height: 100vh;
   }
 
-
   header{
     height: 12vh;
     background-color:#465775;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
   }
 
   .select{
@@ -27,6 +26,7 @@
   .select label{
     font-size: 1.3rem;
     margin: 15px;
+    font-weight: bold;
   }
 
   #selects{
@@ -48,7 +48,6 @@
     color: #d7d5e0;
     font-weight: bold;
     font-size: 1rem;
-    
   }
 
   #selects select:hover{
@@ -56,16 +55,39 @@
     letter-spacing: 1px;
     transform: scale(1.05);
     background-color: #a998c9be;
-    color: #28344a;
+    color: #29354b;
     border-color: rgb(0, 0, 0);
   }
 
-  #selects select option{
-   
-    padding: 25px;
-    margin: 25px;
+  .links a{
+    color: black;
+    text-decoration: none;
   }
 
-#meuGrafico{
-    height: 150px;
+  .links li{
+    display: flex;
+    margin: 20px;
+    list-style: none;   
+    padding: 15px;
+  }
+
+  .links li ul{
+    margin: 15px;
+  }
+
+.links a{
+    transition: all 0.5s ease-in-out;
+    font-size: 1.2rem;
 }
+
+  .links a:hover{
+    cursor: pointer;
+    letter-spacing: 1px;
+    transform: scale(1.05);
+  }
+
+  .links a:hover{
+    background-color: rgb(187, 183, 183);
+    border-radius: 15px;
+    padding: 10px;
+  }
